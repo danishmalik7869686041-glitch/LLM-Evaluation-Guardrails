@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .env
 evaluation_logs.jsonl
+.deepeval/
+evaluation_metrics.json
+

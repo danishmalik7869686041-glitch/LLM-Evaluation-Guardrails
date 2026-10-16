@@ -128,3 +128,29 @@ This project uses basic rule-based checks. Word overlap does not reliably measur
 
 This project is a learning prototype, not a production-grade LLM evaluation or security system.
 
+## DeepEval Evaluation Results
+
+**Evaluation date:** 14 October 2026
+
+### Metrics
+
+| Metric | Result | Status |
+|---|---:|---|
+| Faithfulness | 1.00 | PASS |
+| Answer Relevancy | Not evaluated in the latest run | Retry required |
+
+### Test Configuration
+- Evaluation framework: DeepEval
+- Evaluation model: Gemini 3.6 Flash
+- Faithfulness threshold: 0.70
+- Answer Relevancy threshold: 0.70
+
+### Observations
+The Faithfulness metric scored 1.00, indicating that the sample answer was consistent with the supplied retrieval context.
+
+The Answer Relevancy evaluation encountered a temporary Gemini API `503 UNAVAILABLE` error. Its score is not available for this run and must not be reported as a passing result.
+
+### Limitations
+These results come from a sample test case and do not establish overall model accuracy or safety. More test cases and repeated evaluations are required.
+
+

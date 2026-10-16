@@ -1,1 +1,6 @@
 Flask
+deepeval
+google-genai
+python-dotenv
+guardrails-ai
+langfuse
