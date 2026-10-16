@@ -5,28 +5,39 @@ from langfuse import Langfuse
 
 load_dotenv()
 
+
 def create_trace(name: str, input_data: dict):
     public_key = os.getenv("LANGFUSE_PUBLIC_KEY")
     secret_key = os.getenv("LANGFUSE_SECRET_KEY")
     host = os.getenv("LANGFUSE_HOST")
 
     if not public_key or not secret_key or not host:
-        print("Langfuse keys/host missing; trace skipped.")
         return None
+
+    client = None
 
     try:
         client = Langfuse(
             public_key=public_key,
             secret_key=secret_key,
             host=host,
+            timeout=2.0,
         )
 
-        trace = client.start_span(
+        span = client.start_observation(
             name=name,
             input=input_data,
+            as_type="span",
         )
-        return client, trace
+
+        return client, span
 
     except Exception as error:
+        if client:
+            try:
+                client.shutdown()
+            except Exception:
+                pass
+
         print(f"Langfuse trace could not start: {error}")
         return None

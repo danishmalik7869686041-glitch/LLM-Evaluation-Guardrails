@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from flask import Flask, request, render_template_string
 
 from guardrails_check import check_input
+from langfuse_tracing import create_trace
 
 load_dotenv()
 
