@@ -18,8 +18,12 @@ The project includes Faithfulness, Answer Relevance, and Hallucination metric co
 Status: NOT RUN successfully. Gemini returned HTTP 429 RESOURCE_EXHAUSTED because the free-tier API quota was exhausted. No metric scores have been fabricated.
 
 ## 4. Langfuse Tracing
-The Langfuse SDK is installed, and the tracing helper imports successfully. End-to-end trace delivery has not been verified. The dashboard currently reports tracing as temporarily disabled.
 
+- Langfuse SDK installed and tracing helper tested.
+- Successfully created, updated, ended, and flushed a test span.
+- Verified that the `task04-test` trace appears in the Langfuse Cloud dashboard.
+- The Flask dashboard still reports tracing as temporarily disabled; automatic tracing from dashboard evaluations is not yet integrated.
+- Token usage and model-generation metrics are unavailable because the app evaluates supplied answers rather than generating LLM responses.
 ## 5. Limitations
 - The dashboard evaluates a supplied answer; it does not generate an LLM response.
 - LLM token usage is unavailable.
